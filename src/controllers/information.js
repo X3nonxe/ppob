@@ -6,7 +6,7 @@ const response = require("../utils/response");
 controllers.getBanner = async (req, res) => {
   try {
     const result = await models.getBanner();
-    return response(res, 0, "Sukses", result);
+    return response(res, 200, 0, "Sukses", result);
   } catch (err) {
     return response(res, 103, err.message);
   }
@@ -16,7 +16,7 @@ controllers.getBanner = async (req, res) => {
 controllers.getServices = async (req, res) => {
   try {
     const result = await models.getServices();
-    return response(res, 0, "Sukses", result);
+    return response(res, 200, 0, "Sukses", result);
   } catch (err) {
     return response(res, 103, err.message);
   }

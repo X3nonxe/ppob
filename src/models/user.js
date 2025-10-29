@@ -29,24 +29,20 @@ models.updateProfile = async (
   { password, first_name, last_name, profile_image },
   email
 ) => {
-  try {
-    const result = await db.query(
-      `UPDATE users 
-       SET 
-        password = COALESCE(NULLIF($1, ''), password),
-        first_name = COALESCE(NULLIF($2, ''), first_name),
-        last_name = COALESCE(NULLIF($3, ''), last_name),
-        profile_image = COALESCE(NULLIF($4, ''), profile_image), 
-        updated_on = NOW()
-       WHERE email = $5
-       RETURNING email, first_name, last_name, profile_image
-       `,
-      [password, first_name, last_name, profile_image, email]
-    );
-    return result.rows[0];
-  } catch (error) {
-    throw error;
-  }
+  const result = await db.query(
+    `UPDATE users 
+     SET 
+      password = COALESCE(NULLIF($1, ''), password),
+      first_name = COALESCE(NULLIF($2, ''), first_name),
+      last_name = COALESCE(NULLIF($3, ''), last_name),
+      profile_image = COALESCE(NULLIF($4, ''), profile_image), 
+      updated_on = NOW()
+     WHERE email = $5
+     RETURNING email, first_name, last_name, profile_image
+     `,
+    [password, first_name, last_name, profile_image, email]
+  );
+  return result.rows[0];
 };
 
 module.exports = models;
