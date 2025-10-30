@@ -60,7 +60,7 @@ Build ppob from the source and install dependencies:
 
 1. **Clone the repository:**
    ```bash
-   $ git clone https://github.com/yourusername/ppob
+   $ git clone https://github.com/X3nonxe/ppob
    ```
 
 2. **Navigate to the project directory:**
@@ -91,21 +91,7 @@ $ docker run -it {image_name}
 
 **Using npm:**
 ```bash
-$ npm start
-```
-
-### Testing
-
-Ppob uses the Jest framework. Run the test suite with:
-
-**Using docker:**
-```bash
-$ docker run -it {image_name} npm test
-```
-
-**Using npm:**
-```bash
-$ npm test
+$ npm run dev
 ```
 
 ---
