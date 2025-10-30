@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "node -r dotenv/config app.js",
-    "dev": "nodemon -r dotenv/config app.js",
+    "dev": "nodemon app.js",
     "migrate:init": "node node_modules/db-migrate/bin/db-migrate create init --sql-file",
     "migrate:up": "node node_modules/db-migrate/bin/db-migrate up",
     "migrate:down": "node node_modules/db-migrate/bin/db-migrate down",

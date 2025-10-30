@@ -26,5 +26,4 @@ module.exports = {
   ServiceNotFoundError,
   InsufficientBalanceError,
   ValidationError,
-	ServerError
 };
