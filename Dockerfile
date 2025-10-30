@@ -1,4 +1,4 @@
-FROM node:18.20.3-buster-slim AS build
+FROM node:latest AS build
 RUN mkdir -p /app
 WORKDIR /app
 COPY . /app
