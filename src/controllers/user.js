@@ -9,7 +9,7 @@ controllers.getProfile = async (req, res) => {
     const result = await models.getProfile(req.token.email);
     return response(res, 200, 0, "Sukses", result);
   } catch (err) {
-    return response(res, 500, 103, err.message);
+    return response(res, 500, 103, "Terjadi kesalahan pada server");
   }
 };
 
@@ -23,7 +23,7 @@ controllers.updateProfile = async (req, res) => {
     const msg = req.body.profile_image ? "Image " : "";
     return response(res, 200, 0, `Update Pofile ${msg}berhasil`, result);
   } catch (err) {
-    return response(res, 500, 103, err.message);
+    return response(res, 500, 103, "Terjadi kesalahan pada server");
   }
 };
 

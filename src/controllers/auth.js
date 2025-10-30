@@ -43,7 +43,7 @@ controllers.login = async (req, res) => {
 
     // User not found
     if (result.rowCount === 0) {
-      return response(res, 401, 103, 'Email atau password salah');
+      return response(res, 401, 103, 'Email belum terdaftar, silahkan registrasi');
     }
 
     const user = result.rows[0];

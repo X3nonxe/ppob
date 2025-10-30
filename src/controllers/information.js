@@ -8,7 +8,7 @@ controllers.getBanner = async (req, res) => {
     const result = await models.getBanner();
     return response(res, 200, 0, "Sukses", result);
   } catch (err) {
-    return response(res, 103, err.message);
+    return response(res, 500, 103, "Terjadi kesalahan pada server");
   }
 };
 
@@ -18,7 +18,7 @@ controllers.getServices = async (req, res) => {
     const result = await models.getServices();
     return response(res, 200, 0, "Sukses", result);
   } catch (err) {
-    return response(res, 103, err.message);
+    return response(res, 500, 103, "Terjadi kesalahan pada server");
   }
 };
 

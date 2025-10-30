@@ -6,9 +6,9 @@ const response = require("../utils/response");
 controllers.getBalance = async (req, res) => {
   try {
     const result = await models.getBalance(req.token.email);
-    return response(res, 0, "Get Balance Berhasil", { balance: result });
+    return response(res, 200, 0, "Get Balance Berhasil", { balance: result });
   } catch (err) {
-    return response(res, 103, err.message);
+    return response(res, 500, 103, "Terjadi kesalahan pada server");
   }
 };
 
@@ -16,9 +16,9 @@ controllers.getBalance = async (req, res) => {
 controllers.topUp = async (req, res) => {
   try {
     const result = await models.topUp(req.token.email, req.body.top_up_amount);
-    return response(res, 0, "Top Up Balance berhasil", { balance: result });
+    return response(res, 200, 0, "Top Up Balance berhasil", { balance: result });
   } catch (err) {
-    return response(res, 103, err.message);
+    return response(res, 500, 103, "Terjadi kesalahan pada server");
   }
 };
 
@@ -29,12 +29,12 @@ controllers.newTransaction = async (req, res) => {
       req.token.email,
       req.body.service_code
     );
-    return response(res, 0, "Transaksi berhasil", result);
+    return response(res, 200, 0, "Transaksi berhasil", result);
   } catch (err) {
     if (err.message.includes("Service") || err.message.includes("Balance")) {
-      return response(res, 102, err.message);
+      return response(res, 400, 102, err.message);
     }
-    return response(res, 103, err.message);
+    return response(res, 500,  103, "Terjadi kesalahan pada server");
   }
 };
 
@@ -49,9 +49,9 @@ controllers.getTransaction = async (req, res) => {
 
     const result = await models.getTransaction(req.token.email, offset, limit);
     const data = limit ? { offset, limit, records: result } : result;
-    return response(res, 0, "Get History Berhasil", data);
+    return response(res, 200, 0, "Get History Berhasil", data);
   } catch (err) {
-    return response(res, 103, err.message);
+    return response(res, 500, 103, "Terjadi kesalahan pada server");
   }
 };
 

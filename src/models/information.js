@@ -11,10 +11,14 @@ models.getBanner = async () => {
 
 // Get services
 models.getServices = async () => {
-  const result = await db.query(
-    `SELECT service_code, service_name, service_icon, service_tariff FROM services`
-  );
+  const result = await db.query(`
+    SELECT service_code, service_name, service_icon, service_tariff
+    FROM services
+    WHERE LOWER(service_code) <> 'topup'
+      AND LOWER(service_name) <> 'topup'
+  `);
   return result.rows;
 };
+
 
 module.exports = models;

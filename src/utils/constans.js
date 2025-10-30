@@ -1,0 +1,13 @@
+const TRANSACTION_TYPES = {
+  TOPUP: 'TOPUP',
+  PAYMENT: 'PAYMENT'
+};
+
+const SERVICE_CODES = {
+  TOPUP: 'TOPUP'
+};
+
+module.exports = {
+	TRANSACTION_TYPES,
+	SERVICE_CODES
+};

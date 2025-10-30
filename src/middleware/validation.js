@@ -46,7 +46,7 @@ validation.topUpAmount = [
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return response(res, 102, errors.array()[0].msg);
+      return response(res, 400, 102, errors.array()[0].msg);
     }
     next();
   },
