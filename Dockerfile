@@ -5,4 +5,4 @@ COPY . /app
 RUN rm -rf node_modules && npm install
 
 EXPOSE 8080
-CMD ["app.js"]
+CMD ["node", "app.js"]
